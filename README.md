@@ -12,7 +12,7 @@ quantidade em estoque (inteiro). O programa deve armazenar no máximo 50
 produtos. O programa deve permitir ao usuário realizar as seguintes
 operações:
 
-# Requisitos do Programa:
+## Requisitos do Programa:
 
 O programa deve apresentar menu com as seguintes opções:
 
@@ -29,7 +29,8 @@ códigos, preços e quantidades em estoque.
 5) Gerar produtos para testes
 6) Sair e fechar o programa
 
-Desenvolvimento do Programa:
+## Desenvolvimento do Programa:
+
 - O programa deve ser desenvolvido em linguagem C, utilizando
 conceitos como vetores, matrizes e menus.
 
