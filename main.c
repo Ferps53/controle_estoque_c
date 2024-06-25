@@ -7,15 +7,14 @@ int main() {
 
   int codigosProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
   double precosProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
-  int quantidadeProduto[QUANTIDADE_MAXIMA_PRODUTOS];
+  int quantidadeProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
 
   int opcaoMenu = 0;
+  int indiceUltimoCodigoAdicionado = 0;
   while (opcaoMenu != 6) {
 
     // reinicia o valor da opcaoMenu
     opcaoMenu = 0;
-
-    system("clear");
 
     printf("Menu - Gerenciador de Estoque\n");
 
@@ -31,7 +30,46 @@ int main() {
 
       // Funcionalidade de adicionar produtos
     case 1:
-      printf("Funcionalidade ainda não implementada");
+
+      printf("Cadastro de Produto\n\n");
+
+      printf("Escreva o código do produto: \n");
+      int codigoProduto;
+      scanf("%d", &codigoProduto);
+
+      int codigoExistente = 0;
+      for (int i = 0; i < QUANTIDADE_MAXIMA_PRODUTOS; i++) {
+        if (codigosProdutos[i] == codigoProduto) {
+          codigoExistente = 1;
+          break;
+        }
+      }
+      if (codigoExistente) {
+        printf("O codigo inserido já existe!\n");
+        break;
+      }
+
+      codigosProdutos[indiceUltimoCodigoAdicionado] = codigoProduto;
+
+      printf("Escreva o preço do produto: \n");
+      double precoProduto;
+      scanf("%lf", &precoProduto);
+      precosProdutos[indiceUltimoCodigoAdicionado] = precoProduto;
+
+      printf("Escreva a quantidade desse produto no estoque: \n");
+      int quantidadeProduto;
+      scanf("%d", &quantidadeProduto);
+      quantidadeProdutos[indiceUltimoCodigoAdicionado] = quantidadeProduto;
+
+      indiceUltimoCodigoAdicionado++;
+
+      printf("Código | Preço | Quantidade\n");
+      for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
+        printf("%d      ", codigosProdutos[i]);
+        printf("%.2lf      ", precosProdutos[i]);
+        printf("%d      \n", quantidadeProdutos[i]);
+      }
+
       break;
 
       // Funcionalidade de consultar dados de um produto
