@@ -31,8 +31,7 @@ int main() {
     switch (opcaoMenu) {
 
       // Funcionalidade de adicionar produtos
-    case 1:
-
+    case 1: {
       printf("Cadastro de Produto\n\n");
 
       printf("Escreva o código do produto: \n");
@@ -67,15 +66,40 @@ int main() {
 
       indiceUltimoCodigoAdicionado++;
 
-    
       printf("Produto %d cadastrado com sucesso\n", codigoProduto);
 
       break;
+    }
 
       // Funcionalidade de consultar dados de um produto
-    case 2:
-      printf("Funcionalidade ainda não implementada");
-      break;
+    case 2: {
+
+      printf("Digite o código do produto que deseja pesquisar: \n");
+
+      int codigoProduto;
+
+      scanf("%d", &codigoProduto);
+      int codigoExistente = -1;
+      for (int i = 0; i < QUANTIDADE_MAXIMA_PRODUTOS; i++) {
+        if (codigosProdutos[i] == codigoProduto) {
+          codigoExistente = i; // retorna o indice do produto no vetor de
+                               // codigos
+          break;
+        }
+      }
+      if (codigoExistente == -1) {
+        printf("O codigo inserido não existe!\n\n");
+        break;
+      }
+
+      printf("Código | Preço | Quantidade\n");
+      printf("%d      ", codigosProdutos[codigoExistente]);
+      printf("%.2lf      ", precosProdutos[codigoExistente]);
+      printf("%d      \n", quantidadeProdutos[codigoExistente]);
+
+    }
+
+    break;
 
       // Funcionalidade de registrar vendas
     case 3:
@@ -84,7 +108,7 @@ int main() {
 
       // Funcionalidade de gerar um relatório dos produtos
     case 4:
-       printf("Código | Preço | Quantidade\n");
+      printf("Código | Preço | Quantidade\n");
       for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
         printf("%d      ", codigosProdutos[i]);
         printf("%.2lf      ", precosProdutos[i]);
