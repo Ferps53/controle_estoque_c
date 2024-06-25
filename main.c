@@ -10,10 +10,12 @@ int main() {
   int quantidadeProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
 
   int opcaoMenu = 0;
+
+  // Inicializa o indice na primeira posição do vetor
   int indiceUltimoCodigoAdicionado = 0;
   while (opcaoMenu != 6) {
 
-    // reinicia o valor da opcaoMenu
+    // Reinicia o valor da opcaoMenu
     opcaoMenu = 0;
 
     printf("Menu - Gerenciador de Estoque\n");
@@ -37,6 +39,8 @@ int main() {
       int codigoProduto;
       scanf("%d", &codigoProduto);
 
+      // Por conta da implementação não é possível ter dois códigos de produto
+      // iguais
       int codigoExistente = 0;
       for (int i = 0; i < QUANTIDADE_MAXIMA_PRODUTOS; i++) {
         if (codigosProdutos[i] == codigoProduto) {
@@ -45,7 +49,7 @@ int main() {
         }
       }
       if (codigoExistente) {
-        printf("O codigo inserido já existe!\n");
+        printf("O codigo inserido já existe!\n\n");
         break;
       }
 
