@@ -67,12 +67,8 @@ int main() {
 
       indiceUltimoCodigoAdicionado++;
 
-      printf("Código | Preço | Quantidade\n");
-      for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
-        printf("%d      ", codigosProdutos[i]);
-        printf("%.2lf      ", precosProdutos[i]);
-        printf("%d      \n", quantidadeProdutos[i]);
-      }
+    
+      printf("Produto %d cadastrado com sucesso\n", codigoProduto);
 
       break;
 
@@ -88,7 +84,13 @@ int main() {
 
       // Funcionalidade de gerar um relatório dos produtos
     case 4:
-      printf("Funcionalidade ainda não implementada");
+       printf("Código | Preço | Quantidade\n");
+      for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
+        printf("%d      ", codigosProdutos[i]);
+        printf("%.2lf      ", precosProdutos[i]);
+        printf("%d      \n", quantidadeProdutos[i]);
+      }
+
       break;
 
       // Funcionalidade de gerar produtos para testes
