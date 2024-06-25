@@ -13,19 +13,18 @@ int main() {
 
   // Inicializa o indice na primeira posição do vetor
   int indiceUltimoCodigoAdicionado = 0;
-  while (opcaoMenu != 6) {
+  while (opcaoMenu != 5) {
 
     // Reinicia o valor da opcaoMenu
     opcaoMenu = 0;
 
-    printf("Menu - Gerenciador de Estoque\n");
+    printf("Menu - Gerenciador de Estoque\n\n");
 
     printf("1 - Adicionar um novo produto\n");
     printf("2 - Consultar um produto\n");
     printf("3 - Registrar a venda de um produto\n");
     printf("4 - Relatório de produtos\n");
-    printf("5 - Gerar produtos para teste\n");
-    printf("6 - Sair\n\n");
+    printf("5 - Sair\n\n");
 
     scanf("%d", &opcaoMenu);
     switch (opcaoMenu) {
@@ -135,7 +134,7 @@ int main() {
     }
 
       // Funcionalidade de gerar um relatório dos produtos
-    case 4:
+    case 4: {
       printf("Código | Preço | Quantidade\n");
       for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
         printf("%d      ", codigosProdutos[i]);
@@ -144,14 +143,20 @@ int main() {
       }
 
       break;
-
-      // Funcionalidade de gerar produtos para testes
-    case 5:
-      printf("Funcionalidade ainda não implementada");
-      break;
-    case 6:
+    }
+    case 5: {
+      // cls limpa o terminal no windows
+      system("cls");
+      // cls limpa o terminal no linux
       system("clear");
       break;
+    }
+
+    default: {
+      printf("Valor digitado inválido!\n");
+      printf("Tente novamente!\n");
+      break;
+    }
     }
   }
   return 0;
