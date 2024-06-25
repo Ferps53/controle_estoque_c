@@ -4,6 +4,8 @@
  - Felipe Brostolin Ribeiro 
  - Felipe Franzoi Adames
 
+### GitHub: [Código Fonte do Projeto](https://github.com/Ferps53/controle_estoque_c)
+
 Introdução:
 Este trabalho tem como objetivo a criação de um programa em linguagem C
 para controle de estoque. Utilize vetores ou matrizes para armazenar
