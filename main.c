@@ -86,7 +86,7 @@ int main() {
 
       scanf("%d", &codigoProduto);
       int codigoExistente = -1;
-      for (int i = 0; i < QUANTIDADE_MAXIMA_PRODUTOS; i++) {
+      for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
         if (codigosProdutos[i] == codigoProduto) {
           codigoExistente = i; // retorna o indice do produto no vetor de
                                // codigos
