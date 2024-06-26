@@ -1,9 +1,13 @@
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define QUANTIDADE_MAXIMA_PRODUTOS 50
 
 int main() {
+
+  // Corrige acentuação nos printf
+  setlocale(LC_ALL, "Portuguese");
 
   int codigosProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
   double precosProdutos[QUANTIDADE_MAXIMA_PRODUTOS];
@@ -25,6 +29,8 @@ int main() {
     printf("3 - Registrar a venda de um produto\n");
     printf("4 - Relatório de produtos\n");
     printf("5 - Sair\n\n");
+
+    printf("Escolha uma das opções acima: \n");
 
     scanf("%d", &opcaoMenu);
     switch (opcaoMenu) {
@@ -91,10 +97,10 @@ int main() {
         break;
       }
 
-      printf("Código | Preço | Quantidade\n");
-      printf("%d      ", codigosProdutos[codigoExistente]);
-      printf("%.2lf      ", precosProdutos[codigoExistente]);
-      printf("%d      \n", quantidadeProdutos[codigoExistente]);
+      printf("Código|\tPreço|\tQuantidade\n");
+      printf("%d\t", codigosProdutos[codigoExistente]);
+      printf("R$ %.2lf\t", precosProdutos[codigoExistente]);
+      printf("%d\n", quantidadeProdutos[codigoExistente]);
     }
 
     break;
@@ -135,11 +141,11 @@ int main() {
 
       // Funcionalidade de gerar um relatório dos produtos
     case 4: {
-      printf("Código | Preço | Quantidade\n");
+      printf("Código|\tPreço|\tQuantidade\n");
       for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
-        printf("%d      ", codigosProdutos[i]);
-        printf("%.2lf      ", precosProdutos[i]);
-        printf("%d      \n", quantidadeProdutos[i]);
+        printf("%d\t", codigosProdutos[i]);
+        printf("R$ %.2lf\t", precosProdutos[i]);
+        printf("%d\n", quantidadeProdutos[i]);
       }
 
       break;
@@ -152,11 +158,10 @@ int main() {
       break;
     }
 
-    default: {
+    default:
       printf("Valor digitado inválido!\n");
       printf("Tente novamente!\n");
       break;
-    }
     }
   }
   return 0;
