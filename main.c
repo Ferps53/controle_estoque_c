@@ -59,7 +59,8 @@ int main() {
 
       codigosProdutos[indiceUltimoCodigoAdicionado] = codigoProduto;
 
-      printf("Escreva o preço do produto: \n");
+      printf("Escreva o preço do produto, utilizando vírgula para separar os "
+             "decimais: \n");
       double precoProduto;
       scanf("%lf", &precoProduto);
       precosProdutos[indiceUltimoCodigoAdicionado] = precoProduto;
@@ -97,10 +98,10 @@ int main() {
         break;
       }
 
-      printf("Código|\tPreço|\tQuantidade\n");
-      printf("%d\t", codigosProdutos[codigoExistente]);
-      printf("R$ %.2lf\t", precosProdutos[codigoExistente]);
-      printf("%d\n", quantidadeProdutos[codigoExistente]);
+      printf("Código \t Preço \t\tQuantidade\n");
+      printf("%d \t", codigosProdutos[codigoExistente]);
+      printf("R$%.2lf \t\t", precosProdutos[codigoExistente]);
+      printf("%d\n\n", quantidadeProdutos[codigoExistente]);
     }
 
     break;
@@ -141,12 +142,17 @@ int main() {
 
       // Funcionalidade de gerar um relatório dos produtos
     case 4: {
-      printf("Código|\tPreço|\tQuantidade\n");
+      printf("Código \t Preço \t\t Quantidade\n");
       for (int i = 0; i < indiceUltimoCodigoAdicionado; i++) {
-        printf("%d\t", codigosProdutos[i]);
-        printf("R$ %.2lf\t", precosProdutos[i]);
+        printf("%d \t", codigosProdutos[i]);
+        // Verifica o tamanho do número para atribuir a tabulação corretamente
+        if (precosProdutos[i] < 100)
+          printf("R$%.2lf \t\t\t", precosProdutos[i]);
+        else
+          printf("R$%.2lf \t\t", precosProdutos[i]);
         printf("%d\n", quantidadeProdutos[i]);
       }
+      printf("\n");
 
       break;
     }
